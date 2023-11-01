@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TorneoDAO:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TorneoDAO_jar</output-path>
+    <root id="archive" name="TorneoDAO.jar">
+      <element id="module-output" name="TorneoDAO" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../Instalables/postgresql-42.6.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
