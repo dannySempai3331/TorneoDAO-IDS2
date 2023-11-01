@@ -12,3 +12,5 @@ Calcular la edad con la fecha de nacimiento (tambien modificar la BD)
 
 Utilizar los casos de uso que va a mandar el Chavez para completar el DAO
 
+## Nota: EL PROYECTO USA JAVA 17
+
