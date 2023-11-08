@@ -1,10 +1,13 @@
 package prueva;
 
 import dtos.Jugador;
+import dtos.Usuario;
 import postgres.JugadorDaoImp;
+import postgres.UsuarioDaoImp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,11 +23,12 @@ public class Main {
         //Completar el DAO, propuesta del DAO para todas las clases.
 
         JugadorDaoImp jdi = new JugadorDaoImp();
+        UsuarioDaoImp udi = new UsuarioDaoImp();
         List<Jugador> list = new ArrayList<>();
         //Jugador j = new Jugador();
 
         Connection connection;
-        String url = "jdbc:postgresql://localhost:5432/torneos?currentSchema=prueva";
+        String url = "jdbc:postgresql://localhost:5432/torneos?currentSchema=prueva1";
         String user = "postgres";
         String password = "megumin";
 
@@ -32,44 +36,21 @@ public class Main {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url,user,password);
             jdi.setConnection(connection);
+            udi.setConnection(connection);
 
-            //getAll()
-            /*list = jdi.getAll();
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-            for (Jugador jugador : list) {
-                System.out.println(jugador);
-            }*/
+            Usuario u = new Usuario();
+            u.setNombre("Andy Gerald");
+            u.setApellido1("San Juan");
+            u.setApellido2("Martinez");
+            u.setFechaNacimiento(formato.parse("15/10/2003"));
+            u.setNoCuenta("1234567");
+            u.setCorreo("andyFarsa@example.com");
+            u.setUserName("farsaXDiana");
+            u.setPassword("dianateamo");
+            System.out.println(udi.createUsuario(u));
 
-            //createJugador()
-            Jugador j = new Jugador();
-            j.setNombre("Miguela");
-            j.setApellido1("de Cervantes");
-            j.setApellido2("Pliego");
-            j.setEdad(35);
-
-            System.out.println(jdi.createJugador(j));
-
-            /* Delete jugador
-            j.setId(8);
-            jdi.deleteJugador(j); */
-
-            //Update
-
-            /*Jugador j = new Jugador();
-            j.setId(3);
-            j.setApellido2("Navarra");
-
-            System.out.println(jdi.modifyJugador(j));*/
-
-            //get solito
-            /*Jugador j = new Jugador();
-            j.setNombre("Andy Gerald");
-            j.setApellido1("San Juan");
-            list= jdi.get(j);
-
-            for(Jugador jg : list){
-                System.out.println(jg);
-            }*/
 
         } catch (Exception e) {
             throw new RuntimeException(e);
