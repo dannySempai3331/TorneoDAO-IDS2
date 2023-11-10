@@ -28,7 +28,7 @@ public class Main {
         //Jugador j = new Jugador();
 
         Connection connection;
-        String url = "jdbc:postgresql://localhost:5432/torneos?currentSchema=prueva1";
+        String url = "jdbc:postgresql://localhost:5432/torneitos";
         String user = "postgres";
         String password = "megumin";
 
